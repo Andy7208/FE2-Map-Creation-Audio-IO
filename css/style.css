@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Highway Gothic";
+    src: url("../fonts/Highway-Gothic.TTF") format("truetype");
+}
+
+body {
+    font-family: "Highway Gothic", sans-serif;
+}
+
+.title {
+    font-family: "Highway Gothic", sans-serif;
+}
