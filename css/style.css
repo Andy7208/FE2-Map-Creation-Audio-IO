@@ -47,7 +47,7 @@ p {
 
 .navbar-RobloxUser {
     display: flex;
-    align-items: center;
+    align-items: start ;
     justify-content: flex-start;
     
     width: 50%;
