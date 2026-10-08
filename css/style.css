@@ -1,21 +1,19 @@
 @font-face {
     font-family: "Highway Gothic";
-    src: url("../fonts/Highway-Gothic.TTF") format("truetype");
-}
-
-html {
-    min-height: 100vh;
-    margin: 0;
+    src: url("../assets/fonts/Highway-Gothic.TTF") format("truetype");
 }
 
 body {
-    font-family: "Highway Gothic", sans-serif;
+    min-height: 100vh;
+    margin: 0;
 
     background-image: url("../assets/images/Background.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+ 
+    font-family: "Highway Gothic", sans-serif;
 }
 
 .title {
