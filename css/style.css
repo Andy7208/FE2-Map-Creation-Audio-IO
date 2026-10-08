@@ -7,7 +7,7 @@ html,
 body {
     min-height: 100%;
     margin: 0;
-    background-color: darkblue;
+    background-color: black;
 }
 
 body {
@@ -29,8 +29,8 @@ p {
 }
 
 .navbar {
-    width: 50%;
-    height: 25%;
+    width: 720px;
+    height: 300px;
 
     display: flex;
     align-items: center;
@@ -48,7 +48,10 @@ p {
 .navbar-RobloxUser {
     display: flex;
     align-items: center;
-    gap: 24px
+    justify-content: flex-start;
+    
+    width: 50%;
+    height: 50px;
 }
 
 main {
