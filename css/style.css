@@ -3,14 +3,20 @@
     src: url("../assets/fonts/Highway-Gothic.TTF") format("truetype");
 }
 
+html,
 body {
+    min-height: 100%;
     margin: 0;
+    background-color: red;
+}
+
+body {
+    min-height: 100vh;
 
     background-image: url("../assets/images/Background.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
  
     font-family: "Highway Gothic", sans-serif;
 }
