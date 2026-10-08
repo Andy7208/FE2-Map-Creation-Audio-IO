@@ -45,20 +45,10 @@ p {
     font-family: "Highway Gothic", sans-serif;
 }
 
-.navbar-title {
+.navbar-RobloxUser {
     display: flex;
     align-items: center;
     gap: 24px
-}
-
-.navbar-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-.navbar-links a:hover {
-    color: #ffee57;
 }
 
 main {
