@@ -7,7 +7,7 @@ html,
 body {
     min-height: 100%;
     margin: 0;
-    background-color: red;
+    background-color: darkblue;
 }
 
 body {
@@ -19,4 +19,11 @@ body {
     background-repeat: no-repeat;
  
     font-family: "Highway Gothic", sans-serif;
+    color: white;
+}
+
+.title,
+h1,
+p {
+    color: white;
 }
