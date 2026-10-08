@@ -1,11 +1,17 @@
 {
-    "Setting": {
-        "AudioFade": true,
-        "PlayAudio": false,
-        "Volume": 0.75,
-        "Roblox_UserName": null
-    },
+    "Roblox_UserName": null,
 
     "CurrentAudio": null,
-    "Audio": []
+    "AudioList": [],
+
+    "Setting": {
+        "PlayAudio": false,
+        "AudioFade": true,
+        "Volume": 0.75
+    },
+
+    "Meta": {
+        "Fade_Time": 0.5,
+        "Fade_Ease": "linear"
+    }
 }
