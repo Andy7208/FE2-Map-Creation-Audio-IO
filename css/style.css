@@ -3,6 +3,8 @@
     src: url("../assets/fonts/Highway-Gothic.TTF") format("truetype");
 }
 
+/* Menu setup */
+
 html,
 body {
     min-height: 100%;
@@ -28,6 +30,8 @@ p {
     color: white;
 }
 
+/* Navbar Setup */
+
 .navbar {
     width: 720px;
     height: 720px;
@@ -51,6 +55,8 @@ p {
 
     font-family: "Highway Gothic", sans-serif;
 }
+
+/* Roblox Account User */
 
 .navbar-RobloxUser {
     display: flex;
@@ -80,6 +86,31 @@ p {
 
     outline: none;
 }
+
+.navbar-Button {
+    width: 120px;
+    height: 40px;
+
+    font-family: "Highway Gothic", sans-serif;
+    font-size: 20px;
+    color: white;
+
+    background-color: #354950;
+    border: 2px solid #52666d;
+    border-radius: 4px;
+
+    cursor: pointer;
+}
+
+.navbar-Button:hover {
+    background-color: #7197a4;
+}
+
+.navbar-Button:active {
+    background-color: #202e33;
+}
+
+/* Main config / setup */
 
 main {
     position: absolute;

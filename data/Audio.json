@@ -1,10 +1,11 @@
 {
     "Roblox_UserName": null,
 
-    "CurrentAudio": null,
+    "CurrentAudio": {
+        "AssetID": null,
+        "LinkID": null
+    },
     "PlayAudio": false,
-
-    "AudioList": [],
 
     "Setting": {
         "AudioFade": true,
