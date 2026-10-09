@@ -62,6 +62,24 @@ p {
     font-size: 32px;
 }
 
+.navbar-TextBox {
+    width: 250px;
+    height: 40px;
+
+    padding: 0 12px;
+    box-sizing: border-box;
+
+    font-family: "Highway Gothic", sans-serif;
+    font-size: 20px;
+    color: white;
+
+    background-color: #202e33;
+    border: 2px solid #52666d;
+    border-radius: 4px;
+
+    outline: none;
+}
+
 main {
     position: absolute;
 
