@@ -1,17 +1,14 @@
+
 {
-  // ...
-  "observability": {
-    "logs": {
-      "enabled": true,
-      "head_sampling_rate": 1,
-      "invocation_logs": true,
-      "persist": true
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "fe2-map-creation-audio-io",
+    "main": "src/index.js",
+    "compatibility_date": "2026-10-06",
+    "assets": {
+    "directory": ".",
+    "binding": "ASSETS"
     },
-    "traces": {
-      "enabled": false,
-      "head_sampling_rate": 1,
-      "persist": true
+    "observability": {
+    "enabled": true
     }
-  }
-  // ...
 }
