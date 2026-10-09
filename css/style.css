@@ -36,7 +36,7 @@ p {
     top: 0;
     left: 50%;
 
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(-24px);
 
     display: flex;
     align-items: start;
