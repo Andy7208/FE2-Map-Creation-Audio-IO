@@ -3,7 +3,7 @@ import RobloxIO from "../RobloxIO.js";
 const IO = new RobloxIO();
 
 IO.AddEventListener("navbar-Button: click", (username) => {
-    console.log(`Checking Roblox User Account: @${text}`);
+    console.log(`Checking Roblox User Account: @${username}`);
 });
 
 document.querySelector(".navbar-Button").addEventListener("click", () => {
