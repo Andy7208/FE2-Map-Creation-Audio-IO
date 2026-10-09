@@ -39,13 +39,13 @@ p {
     transform: translateX(-50%);
 
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
 
     padding: 0 24px;
     box-sizing: border-box;
 
-    background-color: #00000080;
+    background-color: #202e3380;
     color: white;
 
     font-family: "Highway Gothic", sans-serif;
@@ -66,5 +66,8 @@ main {
     top: 20px;
     right: 20px;
     
+    padding: 20px;
     color: white;
+
+    text-align: left;
 }
