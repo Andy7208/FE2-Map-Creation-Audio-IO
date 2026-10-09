@@ -27,7 +27,14 @@
 
         <script>
             document.querySelector(".navbar-Button").addEventListener("click", () => {
-                alert("Button pressed!");
+                const text = document.querySelector(".navbar-TextBox").value.trim();
+
+                if (text == "") {
+                    alert("Error: Please type your Roblox UserName Account.");
+                    return;
+                }
+                
+                console.log(`Checking Roblox User Account: @${text}`);
             });
         </script>
     </body>
