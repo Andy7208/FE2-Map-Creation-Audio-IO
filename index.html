@@ -16,8 +16,8 @@
         <nav class="navbar">
             <div class="navbar-RobloxUser">UserName</div>
             <input
-                text="text",
-                class="navbar-TextBox",
+                text="text"
+                class="navbar-TextBox"
                 placeholder="Enter Roblox UserName"
             />
             <button class="navbar-Button" type="button">
@@ -25,17 +25,6 @@
             </button>
         </nav>
 
-        <script>
-            document.querySelector(".navbar-Button").addEventListener("click", () => {
-                const text = document.querySelector(".navbar-TextBox").value.trim();
-
-                if (text == "") {
-                    alert("Error: Please type your Roblox UserName Account.");
-                    return;
-                }
-                
-                console.log(`Checking Roblox User Account: @${text}`);
-            });
-        </script>
+        <script type="module" src="js/instance/navbar-Button.js"></script>
     </body>
 </html>
