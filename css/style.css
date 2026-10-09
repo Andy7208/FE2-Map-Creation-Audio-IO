@@ -32,6 +32,12 @@ p {
     width: 720px;
     height: 300px;
 
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -47,7 +53,7 @@ p {
 
 .navbar-RobloxUser {
     display: flex;
-    align-items: start ;
+    align-items: center;
     justify-content: flex-start;
     
     width: 50%;
