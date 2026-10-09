@@ -5,10 +5,17 @@
     "main": "src/index.js",
     "compatibility_date": "2026-10-06",
     "assets": {
-    "directory": ".",
-    "binding": "ASSETS"
+        "directory": ".",
+        "binding": "ASSETS"
     },
     "observability": {
-    "enabled": true
+        "enabled": true,
+        "logs": {
+            "enabled": true,
+            "invocation_logs": true
+        },
+        "traces": {
+            "enabled": false
+        }
     }
 }
