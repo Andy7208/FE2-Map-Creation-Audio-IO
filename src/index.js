@@ -2,7 +2,7 @@ const WEBSITE_ORIGIN = "https://andy7208.github.io";
 
 export default {
     async fetch(request, env) {
-        const URL = new URL(request.url);
+        const requestURL = new URL(request.url);
 
         const Headers = {
             "Access-Control-Allow-Origin": WEBSITE_ORIGIN,
@@ -18,7 +18,7 @@ export default {
             });
         }
 
-        if (URL.pathname !== "/EventsContact") {
+        if (requestURL.pathname !== "/EventsContact") {
             return Response.json(
                 { error: "Not found" },
                 { status: 404, headers: Headers }
@@ -26,11 +26,11 @@ export default {
         }
 
         if (request.method !== "POST") {
-                return Response.json(
-                    { error: "Method not allowed" },
-                    { status: 405, headers: Headers }
-                );
-            }
+            return Response.json(
+                { error: "Method not allowed" },
+                { status: 405, headers: Headers }
+            );
+        }
 
         let Data;
 
