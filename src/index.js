@@ -18,6 +18,33 @@ export default {
             });
         }
 
+        if (requestURL.pathname === "/TestKV") {
+            const testKey = "fe2_audio_io_test";
+
+            try {
+                await env.EVENTS.put(testKey, "KV is working!");
+
+                const value = await env.EVENTS.get(testKey);
+
+                return Response.json(
+                    {
+                        ok: value === "KV is working!",
+                        binding: "EVENTS",
+                        value: value
+                    },
+                    { status: 200, headers: Headers }
+                );
+            } catch (error) {
+                return Response.json(
+                    {
+                        ok: false,
+                        error: error.message
+                    },
+                    { status: 500, headers: Headers}
+                );
+            }
+        }
+
         if (requestURL.pathname !== "/EventsContact") {
             return Response.json(
                 { error: "Not found" },
