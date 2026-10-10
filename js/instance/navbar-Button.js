@@ -5,7 +5,7 @@ const IO = new RobloxIO();
 const button = document.querySelector(".navbar-Button");
 const textBox = document.querySelector(".navbar-Textbox");
 
-IO.AddEventListener("navbar-Button: click", (username) => {
+IO.AddEventListener("navbar-Button: click", async (username) => {
     console.log(`Checking Roblox User Account: @${username}`);
 
     const result = await IO.SendRequest(
