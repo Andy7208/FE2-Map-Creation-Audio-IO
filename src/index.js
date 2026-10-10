@@ -55,16 +55,72 @@ async function Check_RobloxAccount(request)
         return JSON_Response({
             ok: false,
             error: "Roblox username is required."
-        });
+        }, 400);
     }
 
     const username = Data.username?.trim();
 
+    let __Response;
+
+    try {
+        __Response = await fetch(
+            "https://user.roblox.com/v1/usernames/user",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    username: [username],
+                    excludeBannedUser: false
+                })
+            }
+        );
+    } catch(Error) {
+        return JSON_Response({
+            ok: false,
+            username: username,
+            error: "Failed to contact Roblox."
+        }, 502);
+    }
+
+    if (!__Response.ok) {
+        return JSON_Response({
+            ok: false,
+            username: username,
+            error: "Roblox username lookup failed",
+            status: Response.status
+        }, 502);
+    }
+
+    let Result;
+
+    try {
+        Result = await Response.json();
+    } catch(Error) {
+        return JSON_Response({
+            ok: false,
+            username: username,
+            error: "Invalid response from Roblox."
+        }, 502);
+    }
+
+    const Account = Result.data?.[0];
+
+    if (!Account) {
+        return JSON_Response({
+            ok: false,
+            username: username,
+            error: "Roblox account not found"
+        }, 404);
+    }
+
     return JSON_Response({
-        ok: false,
-        username: username,
-        error: "Roblox account verification is not implemented yet."
-    }, 501);
+        ok: true,
+        username: Account.name,
+        displayName: Account.displayName,
+        userId: Account.id
+    })
 }
 
 async function EventsContact(request)
