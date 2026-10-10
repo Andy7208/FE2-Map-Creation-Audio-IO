@@ -114,28 +114,48 @@ p {
     background-color: #202e33;
 }
 
-/* Audio Volume Setup */
+/* navbar-Audio Setup */
+
+.navbar-Audio {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+    width: 100%;
+    height: 75px;
+
+    font-size: 32px;
+}
+
+/* navbar-Volume Setup */
 
 .navbar-Volume {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 14px;
+
+    width: 100%;
+    min-height: 44px;
+
+    font-family: "Highway Gothic", sans-serif;
+    font-size: 22px;
 }
 
 .navbar-Volume label {
-    font-size: 14px;
+    font-size: 22px;
     white-space: nowrap;
 }
 
 .navbar-Volume input[type="range"] {
-    width: 120px;
+    width: 180px;
     cursor: pointer;
     accent-color: #4caf50;
 }
 
 .navbar-Volume span {
-    min-width: 40px;
-    font-size: 14px;
+    min-width: 55px;
+
+    font-size: 22px;
     text-align: right;
 }
 
