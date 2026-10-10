@@ -1,92 +1,151 @@
 const WEBSITE_ORIGIN = "https://andy7208.github.io";
 
+const JSON_HEADERS = {
+    "Access-Control-Allow-Origin": WEBSITE_ORIGIN,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Content-Type": "application/json"
+};
+
+function JSON_Response(Data, status = 200) {
+    return Response.json(
+        Data,
+        {
+            status: status,
+            headers: JSON_HEADERS
+        }
+    );
+}
+
+async function TestKV(env) {
+    const testKey = "fe2_audio_io_test";
+
+    try {
+        await env.EVENTS.put(testKey, "KV is working!");
+
+        const value = await env.EVENTS.get(testKey);
+
+        return JSON_Response({
+            ok: value === "KV is working!",
+            binding: "EVENTS",
+            value: value
+        });
+    } catch (error) {
+        return JSON_Response({
+            ok: false,
+            error: error.message
+        }, 500);
+    }
+}
+
+async function Check_RobloxAccount(request)
+{
+    let Data;
+
+    try {
+        Data = await request.json();
+    } catch(Error) {
+        return JSON_Response({
+            ok: false,
+            error: "Invalid JSON request."
+        }, 400);
+    }
+
+    if (typeof Data?.username !== "string" || Data.username.trim() === "") {
+        return JSON_Response({
+            ok: false,
+            error: "Roblox username is required."
+        });
+    }
+
+    const username = Data.username?.trim();
+
+    return JSON_Response({
+        ok: false,
+        username: username,
+        error: "Roblox account verification is not implemented yet."
+    }, 501);
+}
+
+async function EventsContact(request)
+{
+    let Data;
+
+    try {
+        Data = await request.json();
+    } catch(Error) {
+        return JSON_Response({
+            ok: false,
+            error: "Invalid JSON request."
+        }, 400);
+    }
+
+    if (typeof Data?.username !== "string" || Data.username.trim() === "") {
+        return JSON_Response({
+            ok: false,
+            error: "A username is required."
+        }, 400);
+    }
+
+    return JSON_Response({
+        ok: true,
+        event: Data.event ?? null,
+        username: Data.username.trim()
+    });
+}
+
+async function CustomData(request) {
+    let Data;
+
+    try {
+        Data = await request.json();
+    } catch {
+        return JSON_Response({
+            ok: false,
+            error: "Invalid JSON request."
+        }, 400);
+    }
+
+    return JSON_Response({
+        ok: true,
+        data: Data
+    }, 400);
+}
+
 export default {
     async fetch(request, env) {
         const requestURL = new URL(request.url);
 
-        const Headers = {
-            "Access-Control-Allow-Origin": WEBSITE_ORIGIN,
-            "Access-Control-Allow-Methods": "POST, OPTIONS",
-            "Access-Control-Allow-Headers": "Content-Type",
-            "Content-Type": "application/json"
-        };
+        const pathname = requestURL.pathname;
+        const method = request.method;
 
-        if (request.method === "OPTIONS") {
+        if (method === "OPTIONS") {
             return new Response(null, {
                 status: 204,
-                headers: Headers
+                headers: JSON_HEADERS
             });
         }
 
-        if (requestURL.pathname === "/TestKV") {
-            const testKey = "fe2_audio_io_test";
-
-            try {
-                await env.EVENTS.put(testKey, "KV is working!");
-
-                const value = await env.EVENTS.get(testKey);
-
-                return Response.json(
-                    {
-                        ok: value === "KV is working!",
-                        binding: "EVENTS",
-                        value: value
-                    },
-                    { status: 200, headers: Headers }
-                );
-            } catch (error) {
-                return Response.json(
-                    {
-                        ok: false,
-                        error: error.message
-                    },
-                    { status: 500, headers: Headers}
-                );
-            }
+        if (method !== "POST") {
+            return JSON_Response({
+                error: "Method not allowed"
+            }, 405);
         }
 
-        if (requestURL.pathname !== "/EventsContact") {
-            return Response.json(
-                { error: "Not found" },
-                { status: 404, headers: Headers }
-            );
+        switch(pathname) {
+            case "/TestKV":
+                return await TestKV(env);
+            case "/Check_RobloxAccount":
+                return await Check_RobloxAccount(request);
+            case "/EventsContact":
+                return await EventsContact(request);
+            case "/Custom":
+                return await CustomData(request);
+            default:
+                return JSON_Response({
+                    ok: false,
+                    error: "Endpoint not found"
+                }, 404);
         }
-
-        if (request.method !== "POST") {
-            return Response.json(
-                { error: "Method not allowed" },
-                { status: 405, headers: Headers }
-            );
-        }
-
-        let Data;
-
-        try {
-            Data = await request.json();
-        } catch {
-            return Response.json(
-                { error: "Invalid JSON" },
-                { status: 400, headers: Headers }
-            );
-        }
-
-        if (
-            typeof Data.username !== "string" ||
-            Data.username.trim() === ""
-        ) {
-            return Response.json(
-                { error: "A username is required" },
-                { status: 400, headers: Headers}
-            );
-        }
-
-        return Response.json(
-            {
-                ok: true,
-                event: Data.event ?? null,
-                username: Data.username.trim()
-            },
-            { status: 200, headers: Headers}
-        );
     }
 };

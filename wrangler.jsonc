@@ -20,6 +20,10 @@
     },
     "kv_namespaces": [
         {
+            "binding": "ACCOUNT_DATA",
+            "id": "f26fb57650c747308abfc0ddba46a3af"
+        },
+        {
             "binding": "EVENTS",
             "id": "a159c3950477422ca8de479a00234f77"
         }

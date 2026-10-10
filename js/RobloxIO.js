@@ -6,11 +6,20 @@ class RobloxIO {
     }
 
     AddEventListener(name, callback) {
+        if (typeof name !== "string" || typeof callback !== "function") {
+            return false;
+        }
+
+        if (this.EventListener[name]) {
+            return false;
+        }
+        
         this.EventListener[name] = callback;
+        return true;
     }
 
     RemoveEventListener(name) {
-        if (!this.EventListener[name]) {
+        if (!Object.hasOwn(this.EventListener, name)) {
             return false;
         }
         
@@ -21,7 +30,7 @@ class RobloxIO {
     CallEventListener(name, ...args) {
         const callback = this.EventListener[name];
 
-        if (!callback) {
+        if (typeof callback !== "function") {
             return false;
         }
 
@@ -40,11 +49,16 @@ class RobloxIO {
             });
 
             if (!Response.ok) {
-                console.error("Request failed:", Response.status);
+                console.error("Request failed:", Response.status, Response.statusText);
                 return false;
             }
 
-            return await Response.json();
+            try {
+                return await Response.json();
+            } catch(Error) {
+                console.error("Invalid JSON response:", Error);
+                return false;
+            }
         } catch(Error) {
             console.error("Failed to send request:", Error);
             return false;
