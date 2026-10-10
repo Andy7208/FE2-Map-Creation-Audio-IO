@@ -9,7 +9,7 @@ IO.AddEventListener("navbar-Button: click", (username) => {
     console.log(`Checking Roblox User Account: @${username}`);
 
     const result = await IO.SendRequest(
-        "https://fe2-map-creation-audio-io.andygentile092.workers.dev",
+        "https://fe2-map-creation-audio-io.andygentile092.workers.dev/Check_RobloxAccount",
         { username: username }
     );
 
