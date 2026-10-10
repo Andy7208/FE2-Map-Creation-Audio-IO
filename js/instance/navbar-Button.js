@@ -7,6 +7,18 @@ const textBox = document.querySelector(".navbar-Textbox");
 
 IO.AddEventListener("navbar-Button: click", (username) => {
     console.log(`Checking Roblox User Account: @${username}`);
+
+    const result = await IO.SendRequest(
+        "https://fe2-map-creation-audio-io.andygentile092.workers.dev",
+        { username: username }
+    );
+
+    if (!result) {
+        console.error("[Audio IO] Failed to check Roblox account");
+        return;
+    }
+
+    console.log("[Audio IO] Account check response:", result.username);
 });
 
 if (button && textBox) {
