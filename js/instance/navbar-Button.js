@@ -3,7 +3,7 @@ import RobloxIO from "../RobloxIO.js";
 const IO = new RobloxIO();
 
 const button = document.querySelector(".navbar-Button");
-const textBox = document.querySelector(".navbar-Textbox");
+const textBox = document.querySelector(".navbar-TextBox");
 
 IO.AddEventListener("navbar-Button: click", async (username) => {
     console.log(`Checking Roblox User Account: @${username}`);
@@ -33,5 +33,9 @@ if (button && textBox) {
         IO.CallEventListener("navbar-Button: click", text);
     });
 } else {
-    console.error("[Audio IO] Username input or submit button not found.");
+    console.error(
+        "[Audio IO] Username input or submit button not found.",
+        `\nButton: ${button}`,
+        `\nTextBox: ${textBox}`
+    );
 }
