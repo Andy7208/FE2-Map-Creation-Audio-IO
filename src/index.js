@@ -38,6 +38,26 @@ async function TestKV(env) {
     }
 }
 
+async function TestRobloxAPI() {
+    try {
+        const Response = await fetch("https://user.roblox.com/");
+
+        return JSON_Response({
+            ok: true,
+            status: Response.status,
+            message: "Roblox API host reached."
+        });
+    } catch(Error) {
+        console.error("[Audio IO] Roblox API connection failed:", Error);
+
+        return JSON_Response({
+            ok: false,
+            error: "Could not reach Roblox API host.",
+            details: String(Error)
+        }, 502);
+    }
+}
+
 async function Check_RobloxAccount(request)
 {
     let Data;
@@ -64,7 +84,7 @@ async function Check_RobloxAccount(request)
 
     try {
         __Response = await fetch(
-            "https://user.roblox.com/v1/usernames/user",
+            "https://users.roblox.com/v1/usernames/users",
             {
                 method: "POST",
                 headers: {
@@ -208,6 +228,8 @@ export default {
                 return await EventsContact(request);
             case "/Custom":
                 return await CustomData(request);
+            case "/TestRobloxAPI":
+                return await TestRobloxAPI();
             default:
                 return JSON_Response({
                     ok: false,
