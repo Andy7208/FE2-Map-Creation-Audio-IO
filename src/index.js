@@ -30,10 +30,10 @@ async function TestKV(env) {
             binding: "EVENTS",
             value: value
         });
-    } catch (error) {
+    } catch (Error) {
         return JSON_Response({
             ok: false,
-            error: error.message
+            error: Error.message
         }, 500);
     }
 }
@@ -109,7 +109,7 @@ async function CustomData(request) {
     return JSON_Response({
         ok: true,
         data: Data
-    }, 400);
+    });
 }
 
 export default {
