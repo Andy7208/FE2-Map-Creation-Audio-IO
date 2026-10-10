@@ -71,12 +71,14 @@ async function Check_RobloxAccount(request)
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    username: [username],
+                    usernames: [username],
                     excludeBannedUser: false
                 })
             }
         );
     } catch(Error) {
+        console.error("[Audio IO] Failed to contact Roblox:", Error);
+        
         return JSON_Response({
             ok: false,
             username: username,
@@ -85,11 +87,11 @@ async function Check_RobloxAccount(request)
     }
 
     if (!__Response.ok) {
-        const Details = await Response.text();
+        const Details = await __Response.text();
 
         console.error(
             "[Audio IO] Roblox API Error:",
-            Response.status,
+            __Response.status,
             Details
         );
         
@@ -97,7 +99,7 @@ async function Check_RobloxAccount(request)
             ok: false,
             username: username,
             error: "Roblox username lookup failed",
-            status: Response.status,
+            status: __Response.status,
             details: Details
         }, 502);
     }
@@ -105,7 +107,7 @@ async function Check_RobloxAccount(request)
     let Result;
 
     try {
-        Result = await Response.json();
+        Result = await __Response.json();
     } catch(Error) {
         return JSON_Response({
             ok: false,
