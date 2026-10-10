@@ -45,7 +45,10 @@ async function TestRobloxAPI() {
         return JSON_Response({
             ok: true,
             status: Response.status,
-            message: "Roblox API host reached."
+            message: Response.ok 
+            ? "Roblox API host responded successfully."
+            : "Roblox API host returned an error.",
+            details: await Response.text()
         });
     } catch(Error) {
         console.error("[Audio IO] Roblox API connection failed:", Error);
