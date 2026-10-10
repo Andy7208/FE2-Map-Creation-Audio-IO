@@ -136,9 +136,15 @@ p {
 
     width: 100%;
     min-height: 44px;
+    padding: 8px 22px;
+    box-sizing: border-box;
 
     font-family: "Highway Gothic", sans-serif;
     font-size: 22px;
+
+    background-color: #202e33;
+    border: 2px solid #52666d;
+    border-radius: 4px;
 }
 
 .navbar-Volume label {
@@ -148,15 +154,29 @@ p {
 
 .navbar-Volume input[type="range"] {
     width: 180px;
+    height: 24px;
+
     cursor: pointer;
     accent-color: #4caf50;
 }
 
 .navbar-Volume span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
     min-width: 55px;
+    height: 30px;
+    padding: 0 6px;
+    box-sizing: border-box;
 
     font-size: 22px;
-    text-align: right;
+    text-align: center;
+    white-space: nowrap;
+
+    background-color: #354950;
+    border: 2px solid #52666d;
+    border-radius: 4px;
 }
 
 /* Main config / setup */
