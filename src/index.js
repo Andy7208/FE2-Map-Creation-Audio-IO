@@ -40,7 +40,7 @@ async function TestKV(env) {
 
 async function TestRobloxAPI() {
     try {
-        const Response = await fetch("https://www.roblox.com/");
+        const Response = await fetch("https://users.roblox.com/");
 
         return JSON_Response({
             ok: true,
