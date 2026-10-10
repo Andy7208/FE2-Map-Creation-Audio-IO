@@ -156,6 +156,8 @@ p {
     width: 420px;
     height: 24px;
 
+    padding: 0 24px;
+
     cursor: pointer;
     accent-color: #4caf50;
 }
