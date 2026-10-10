@@ -85,11 +85,20 @@ async function Check_RobloxAccount(request)
     }
 
     if (!__Response.ok) {
+        const Details = await Response.text();
+
+        console.error(
+            "[Audio IO] Roblox API Error:",
+            Response.status,
+            Details
+        );
+        
         return JSON_Response({
             ok: false,
             username: username,
             error: "Roblox username lookup failed",
-            status: Response.status
+            status: Response.status,
+            details: Details
         }, 502);
     }
 

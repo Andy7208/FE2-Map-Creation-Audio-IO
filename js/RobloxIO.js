@@ -49,7 +49,15 @@ class RobloxIO {
             });
 
             if (!Response.ok) {
-                console.error("Request failed:", Response.status, Response.statusText);
+                const Details = await Response.text();
+                
+                console.error(
+                    "Request failed:",
+                    Response.status,
+                    Response.statusText,
+                    Details
+                );
+
                 return false;
             }
 
