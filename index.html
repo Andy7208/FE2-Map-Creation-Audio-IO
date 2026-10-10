@@ -16,15 +16,30 @@
         <nav class="navbar">
             <div class="navbar-RobloxUser">UserName</div>
             <input
-                text="text"
+                type="text"
                 class="navbar-TextBox"
                 placeholder="Enter Roblox UserName"
             />
             <button class="navbar-Button" type="button">
                 Submit
             </button>
+
+            <div class="navbar-Volume">
+                <label for="volumeSlider">Volume</label>
+                
+                <input
+                    type="range"
+                    id="volumeSlider"
+                    min="0"
+                    max="100"
+                    value="75"
+                />
+
+                <span id="volumeValue">75%</span>
+            </div>
         </nav>
 
         <script type="module" src="js/instance/navbar-Button.js"></script>
+        <script type="module" src="js/instance/navbar-Volume.js"></script>
     </body>
 </html>

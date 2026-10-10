@@ -114,6 +114,31 @@ p {
     background-color: #202e33;
 }
 
+/* Audio Volume Setup */
+
+.navbar-Volume {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-Volume label {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.navbar-Volume input[type="range"] {
+    width: 120px;
+    cursor: pointer;
+    accent-color: #4caf50;
+}
+
+.navbar-Volume span {
+    min-width: 40px;
+    font-size: 14px;
+    text-align: right;
+}
+
 /* Main config / setup */
 
 main {
