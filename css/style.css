@@ -171,7 +171,12 @@ p {
 /* Tracker Setup */
 
 .navbar-PlayerData {
-    font-size: 8px;
+    font-size: 12px;
+    gap: 4px;
+}
+
+.navbar-AudioData {
+    font-size: 12px;
     gap: 4px;
 }
 
