@@ -168,7 +168,14 @@ p {
     border-radius: 4px;
 }
 
-/* Main config / setup */
+/* Tracker Setup */
+
+.navbar-PlayerData {
+    font-size: 8px;
+    gap: 4px;
+}
+
+/* Main Config / Setup */
 
 main {
     position: absolute;
