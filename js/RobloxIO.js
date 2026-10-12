@@ -27,14 +27,14 @@ class RobloxIO {
         return true;
     }
 
-    CallEventListener(name, ...args) {
+    async CallEventListener(name, ...args) {
         const callback = this.EventListener[name];
 
         if (typeof callback !== "function") {
             return false;
         }
 
-        callback(...args);
+        await callback(...args);
         return true;
     }
 

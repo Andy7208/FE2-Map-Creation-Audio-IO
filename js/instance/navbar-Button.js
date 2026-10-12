@@ -1,4 +1,5 @@
 import RobloxIO from "../RobloxIO.js";
+import { CONFIG } from "../Main.js";
 
 const IO = new RobloxIO();
 
@@ -8,17 +9,21 @@ const textBox = document.querySelector(".navbar-TextBox");
 IO.AddEventListener("navbar-Button: click", async (username) => {
     console.log(`Checking Roblox User Account: @${username}`);
 
-    const result = await IO.SendRequest(
-        "https://fe2-map-creation-audio-io.andygentile092.workers.dev/Check_RobloxAccount",
-        { username: username }
-    );
+    try {
+        const result = await IO.SendRequest(
+            `${CONFIG.WORKER_URL}/Check_RobloxAccount`,
+            { username: username }
+        );
 
-    if (!result) {
-        console.error("[Audio IO] Failed to check Roblox account");
-        return;
+        if (!result) {
+            console.error("[Audio IO] Failed to check Roblox account");
+            return;
+        }
+
+        console.log("[Audio IO] Account check response:", result.username);
+    } catch(Error) {
+        console.error("[Audio IO] Account request failed:", Error);
     }
-
-    console.log("[Audio IO] Account check response:", result.username);
 });
 
 if (button && textBox) {
