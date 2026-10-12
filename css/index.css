@@ -173,6 +173,10 @@ p {
 /* Audio Options */
 
 .navbar-AudioOptions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
     width: 100%;
     min-height: 44px;
     padding: 0 8px;
