@@ -116,6 +116,8 @@ p {
 
 /* navbar-Audio Setup */
 
+/* Audio Volume */
+
 .navbar-Volume {
     display: flex;
     align-items: center;
@@ -168,16 +170,27 @@ p {
     border-radius: 4px;
 }
 
+/* Audio Options */
+
+.navbar-AudioOptions {
+    padding: 0 8px;
+    box-sizing: border-box;
+
+    background-color: #202e33;
+    border: 2px solid #52666d;
+    border-radius: 4px;
+}
+
 /* Tracker Setup */
 
 .navbar-PlayerData {
     font-size: 12px;
-    gap: 4px;
+    gap: 0px;
 }
 
 .navbar-AudioData {
     font-size: 12px;
-    gap: 4px;
+    gap: 0px;
 }
 
 /* Main Config / Setup */

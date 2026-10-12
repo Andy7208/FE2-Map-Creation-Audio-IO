@@ -1,7 +1,8 @@
 import RobloxIO from "../RobloxIO.js";
-import { CONFIG } from "../Main.js";
+import Main from "../Main.js";
 
 const IO = new RobloxIO();
+const M = new Main();
 
 const button = document.querySelector(".navbar-Button");
 const textBox = document.querySelector(".navbar-TextBox");
@@ -11,12 +12,15 @@ IO.AddEventListener("navbar-Button: click", async (username) => {
 
     try {
         const result = await IO.SendRequest(
-            `${CONFIG.WORKER_URL}/Check_RobloxAccount`,
+            `${M.CONFIG.WORKER_URL}/Check_RobloxAccount`,
             { username: username }
         );
 
-        if (!result) {
-            console.error("[Audio IO] Failed to check Roblox account");
+        if (!result || result.ok !== true) {
+            console.error(
+                "[Audio IO] Failed to check Roblox account",
+                result?.error ?? "Unknown error"
+            );
             return;
         }
 
