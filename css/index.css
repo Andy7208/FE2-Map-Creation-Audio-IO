@@ -173,6 +173,8 @@ p {
 /* Audio Options */
 
 .navbar-AudioOptions {
+    width: 100%;
+    min-height: 44px;
     padding: 0 8px;
     box-sizing: border-box;
 
