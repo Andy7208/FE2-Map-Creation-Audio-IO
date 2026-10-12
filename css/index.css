@@ -3,6 +3,12 @@
     src: url("../assets/fonts/Highway-Gothic.TTF") format("truetype");
 }
 
+@font-face {
+    font-family: "RusselSquare";
+    src: url("../assets/fonts/RusselSquare.otf") format("opentype");
+}
+
+
 /* Menu setup */
 
 html,
@@ -25,9 +31,19 @@ body {
 }
 
 .title,
-h1,
 p {
+    font-family: "RusselSquare";
     color: white;
+}
+
+.logo {
+    width: 584px;
+    min-height: 396px;
+    
+    background-image: url("../assets/images/Background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* Navbar Setup */
