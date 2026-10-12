@@ -37,10 +37,10 @@ p {
 }
 
 .logo {
-    width: 584px;
-    min-height: 396px;
+    width: 292px;
+    min-height: 198px;
     
-    background-image: url("../assets/images/Background.png");
+    background-image: url("../assets/images/Logo.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
