@@ -300,17 +300,27 @@ p {
 /* Tracker Setup */
 
 .navbar-PlayerData {
+    padding: 8px 8px;
+    box-sizing: border-box;
+
+    background-color: #202e33;
+    border: 2px solid #52666d;
+    border-radius: 4px;
+
     font-size: 12px;
     font-family: "Highway Gothic", sans-serif;
-
-    gap: 0px;
 }
 
 .navbar-AudioData {
+    padding: 8px 8px;
+    box-sizing: border-box;
+
+    background-color: #202e33;
+    border: 2px solid #52666d;
+    border-radius: 4px;
+
     font-size: 12px;
     font-family: "Highway Gothic", sans-serif;
-
-    gap: 0px;
 }
 
 /* Main Config / Setup */
