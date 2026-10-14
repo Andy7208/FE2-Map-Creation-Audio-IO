@@ -165,7 +165,7 @@ p {
 
 .navbar-Volume input[type="range"] {
     flex: 1;
-    min-width: 85%;
+    min-width: 65%;
     height: 24px;
     margin: 0;
     padding: 0;
