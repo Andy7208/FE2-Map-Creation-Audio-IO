@@ -164,13 +164,60 @@ p {
 }
 
 .navbar-Volume input[type="range"] {
-    width: 420px;
+    flex: 1;
+    min-width: 85%;
     height: 24px;
+    margin: 0;
+    padding: 0;
 
-    padding: 0 24px;
+    appearance: none;
+    -webkit-appearance: none;
+
+    background-color: #1e2024;
+    border: 2px solid #3a3f4a;
+    border-radius: 4px;
 
     cursor: pointer;
-    accent-color: #4caf50;
+}
+
+.navbar-Volume input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 18px;
+    height: 24px;
+
+    background-color: white;
+    border: 0px solid black;
+    border-radius: 4px;
+
+    cursor: grab;
+}
+
+.navbar-Volume input[type="range"]::-webkit-slider-thumb:active {
+    background-color: gray;
+    cursor: grabbing;
+}
+
+.navbar-Volume input[type="range"]::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+
+    background-color: #c8e4ff;
+    border: 2px solid white;
+    border-radius: 4px;
+
+    cursor: grab;
+}
+
+.navbar-Volume input[type="range"]::-moz-range-thumb:active {
+    width: 12px;
+    height: 12px;
+
+    background-color: #9eb4c9;
+    border-color: #afafaf;
+
+    cursor: grabbing;
 }
 
 .navbar-Volume span {
@@ -238,6 +285,18 @@ p {
 
     color: white;
     cursor: pointer;
+}
+
+.navbar-AllowEffect[aria-pressed="true"],
+.navbar-AllowAudioControl[aria-pressed="true"] {
+    background-color: #83ff83;
+    border-color: #cbffcb;
+}
+
+.navbar-AllowEffect[aria-pressed="false"],
+.navbar-AllowAudioControl[aria-pressed="false"] {
+    background-color: #83ff83;
+    border-color: #cbffcb;
 }
 
 /* Tracker Setup */
