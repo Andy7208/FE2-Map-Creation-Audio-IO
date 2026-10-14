@@ -279,8 +279,8 @@ p {
     padding: 0 8px;
     box-sizing: border-box;
 
-    background-color: #202e33;
-    border: 2px solid #52666d;
+    background-color: #83ff83;
+    border: 0px solid white;
     border-radius: 4px;
 
     color: white;
@@ -290,13 +290,11 @@ p {
 .navbar-AllowEffect[aria-pressed="true"],
 .navbar-AllowAudioControl[aria-pressed="true"] {
     background-color: #83ff83;
-    border-color: #cbffcb;
 }
 
 .navbar-AllowEffect[aria-pressed="false"],
 .navbar-AllowAudioControl[aria-pressed="false"] {
-    background-color: #83ff83;
-    border-color: #cbffcb;
+    background-color: #ff8383;
 }
 
 /* Tracker Setup */
