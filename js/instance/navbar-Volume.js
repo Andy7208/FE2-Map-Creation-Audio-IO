@@ -1,43 +1,53 @@
-const volumeSlider = document.querySelector("#volumeSlider");
-const volumeValue = document.querySelector("#volumeValue");
+export function initialize(M) {
+    const volumeSlider = document.querySelector("#volumeSlider");
+    const volumeValue = document.querySelector("#volumeValue");
 
-if (!volumeSlider || !volumeValue) {
-    console.warn("[Audio IO] Volume controls not found.");
-} else {
-    function applyVolume(audio) {
-        audio.volume = Number(volumeSlider.value) / 100;
-    }
+    let currentValue = 0.75;
 
-    function updateVolume() {
-        const volume = Number(volumeSlider.value);
-
-        volumeValue.textContent = `${volume}%`;
-
-        document.querySelectorAll("audio").forEach(applyVolume);
-    }
-
-    updateVolume();
-
-    volumeSlider.addEventListener("input", updateVolume);
-
-    const observer = new MutationObserver((mutations) => {
-        for (const mutation of mutations) {
-            for (const node of mutation.addedNodes) {
-                if (!(node instanceof Element)) {
-                    continue;
-                }
-
-                if (node instanceof HTMLAudioElement) {
-                    applyVolume(node)
-                }
-
-                node.querySelectorAll("audio").forEach(applyVolume);
-            }
+    if (!volumeSlider || !volumeValue) {
+        console.warn("[Audio IO] Volume controls not found.");
+    } else {
+        currentValue = Number(volumeSlider.value) / 100;
+        
+        function applyVolume(audio) {
+            audio.volume = currentValue;
         }
-    });
 
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
+        function updateVolume() {
+            currentValue = Math.max(
+                0,
+                Math.min(1, Number(volumeSlider.value) / 100)
+            );
+
+            volumeValue.textContent = 
+                `${Math.round(currentValue * 100)}%`;
+
+            document.querySelectorAll("audio").forEach(applyVolume);
+        }
+
+        updateVolume();
+
+        volumeSlider.addEventListener("input", updateVolume);
+
+        const observer = new MutationObserver((mutations) => {
+            for (const mutation of mutations) {
+                for (const node of mutation.addedNodes) {
+                    if (!(node instanceof Element)) {
+                        continue;
+                    }
+
+                    if (node instanceof HTMLAudioElement) {
+                        applyVolume(node)
+                    }
+
+                    node.querySelectorAll("audio").forEach(applyVolume);
+                }
+            }
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
 }
