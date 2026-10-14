@@ -82,7 +82,13 @@ p {
     justify-content: flex-start;
     
     width: 100%;
-    height: 75px;
+    height: 25px;
+    padding: 0 12px;
+    box-sizing: border-box;
+
+    background-color: #202e33;
+    border: 2px solid #52666d;
+    border-radius: 4px;
 
     font-size: 32px;
 }
@@ -203,15 +209,41 @@ p {
     border-radius: 4px;
 }
 
+.navbar-AllowEffect {
+    font-family: "Highway Gothic", sans-serif;
+
+    padding: 0 8px;
+    box-sizing: border-box;
+
+    background-color: #202e33;
+    border: 2px solid #52666d;
+    border-radius: 4px;
+}
+
+.navbar-AllowAudioControl {
+    font-family: "Highway Gothic", sans-serif;
+
+    padding: 0 8px;
+    box-sizing: border-box;
+
+    background-color: #202e33;
+    border: 2px solid #52666d;
+    border-radius: 4px;
+}
+
 /* Tracker Setup */
 
 .navbar-PlayerData {
     font-size: 12px;
+    font-family: "Highway Gothic", sans-serif;
+
     gap: 0px;
 }
 
 .navbar-AudioData {
     font-size: 12px;
+    font-family: "Highway Gothic", sans-serif;
+
     gap: 0px;
 }
 
