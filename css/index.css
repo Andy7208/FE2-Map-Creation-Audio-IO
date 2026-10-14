@@ -299,6 +299,11 @@ p {
 
 /* Tracker Setup */
 
+.navbar-PlayerTracker {
+    width: 100%;
+    gap: 8px;
+}
+
 .navbar-PlayerData {
     padding: 8px 8px;
     box-sizing: border-box;
