@@ -75,7 +75,7 @@ async function startWebsite() {
             console.log(`[Audio IO] Player interacted with: ${name}`);
         } */
 
-        if (name === "navber-Volume" && type === "input") {
+        if (name === "navbar-Volume" && type === "input") {
             const Volume = Number(event.target.value) / 100;
 
             AudioData.UpdateJson({
