@@ -75,19 +75,41 @@ async function startWebsite() {
             console.log(`[Audio IO] Player interacted with: ${name}`);
         } */
 
-        if (name === "navbar-Volume" && type === "input") {
-            const Volume = Number(event.target.value) / 100;
+        switch(`${name}:${type}`) {
+            case "navbar-Volume:input": {
+                const Volume = Number(event.target.value) / 100;
 
-            AudioData.UpdateJson({
-                Setting: {
-                    ...AudioData.Data.Setting,
-                    Volume: Volume
-                }
-            });
+                AudioData.UpdateJson({
+                    Setting: {
+                        ...AudioData.Data.Setting,
+                        Volume: Volume
+                    }
+                });
 
-            console.log(
-                `[Audio IO] Volume updated: ${AudioData.Data.Setting.Volume}`
-            );
+                console.log(
+                    `[Audio IO] Volume updated: ${AudioData.Data.Setting.Volume}`
+                );
+
+                break;
+            }
+            case "navbar-Button:click": {
+                console.log("[Audio IO] Submit button clicked.");
+                break;
+            }
+            case "navbar-AllowEffect": {
+                const Enabled = event.target.value;
+
+                AudioData.UpdateJson({
+                    Setting: {
+                        ...AudioData.Data.Setting,
+                        AllowFade: Enabled
+                    }
+                });
+
+                console.log(
+                    `[Audio IO] Toggle "AllowEffect": ${Enabled}`
+                );
+            }
         }
     });
 
