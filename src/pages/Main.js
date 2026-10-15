@@ -64,6 +64,18 @@ async function startWebsite() {
         document.querySelector(".navbar-AllowEffect")
     );
 
+    EventsManager.setEventHandler((name, type, event) => {
+        const AudioData = website.get("AudioData");
+
+        if (!AudioData?.Data) {
+            return;
+        }
+
+        if (type === "click") {
+            console.log(`[Audio IO] Player interacted with: ${name}`);
+        }
+    });
+
     EventsManager.start();
 }
 

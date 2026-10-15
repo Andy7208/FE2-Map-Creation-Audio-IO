@@ -2,6 +2,8 @@ class EventManager {
     constructor() {
         this.initialized = false;
         this.objects = new Map();
+
+        this.eventHandler = null;
     }
 
     register(name, element) {
@@ -61,7 +63,18 @@ class EventManager {
     }
 
     onEvent(name, type, event) {
-        console.log(`[EventManager] ${name}: ${type}`, event);
+        // console.log(`[EventManager] ${name}: ${type}`, event);
+
+        this.eventHandler?.(name, type, event);
+    }
+
+    setEventHandler(callback) {
+        if (typeof callback !== "function") {
+            return false;
+        }
+
+        this.eventHandler = callback;
+        return true;
     }
 
     start() {
