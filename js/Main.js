@@ -19,11 +19,11 @@ class AudioData {
 
     async LoadJson(JSON_URL) {
         try {
-            const URL = new URL(
+            const ResolvedURL = new URL(
                 JSON_URL,
                 `${this.CONFIG.WEBSITE_URL}/`
             );
-            const Response = await fetch(URL);
+            const Response = await fetch(ResolvedURLURL);
 
             if (!Response.ok) {
                 throw new Error(`HTTP ${Response.status}`);
