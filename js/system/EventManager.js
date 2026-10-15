@@ -18,6 +18,7 @@ class EventManager {
             mouse_down:"mousedown",
             mouse_up:"mouseup",
             click:"click",
+            input: "input"
         };
 
         const listener = {};
