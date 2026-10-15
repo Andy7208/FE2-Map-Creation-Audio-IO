@@ -46,22 +46,22 @@ async function startWebsite() {
 
     EventsManager.register(
         "navbar-Button",
-        document.getElementById("navbar-Button")
+        document.querySelector(".navbar-Button")
     );
 
     EventsManager.register(
         "navbar-Volume",
-        document.getElementById("navbar-Volume")
+        document.querySelector(".navbar-Volume")
     );
 
     EventsManager.register(
         "navbar-AllowAudioControl",
-        document.getElementById("navbar-AllowAudioControl")
+        document.querySelector(".navbar-AllowAudioControl")
     );
     
     EventsManager.register(
         "navbar-AllowEffect",
-        document.getElementById("navbar-AllowEffect")
+        document.querySelector(".navbar-AllowEffect")
     );
 
     EventsManager.start();
