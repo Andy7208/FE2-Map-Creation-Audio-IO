@@ -23,7 +23,7 @@ class AudioData {
                 JSON_URL,
                 `${this.CONFIG.WEBSITE_URL}/`
             );
-            const Response = await fetch(ResolvedURLURL);
+            const Response = await fetch(ResolvedURL);
 
             if (!Response.ok) {
                 throw new Error(`HTTP ${Response.status}`);
