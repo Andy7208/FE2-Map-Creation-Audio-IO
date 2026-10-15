@@ -10,6 +10,7 @@
 
     "Setting": {
         "AudioFade": true,
+        "AudioControl": true,
         "Volume": 0.75
     },
     "Meta": {

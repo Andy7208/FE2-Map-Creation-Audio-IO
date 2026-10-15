@@ -97,7 +97,7 @@ async function startWebsite() {
                 break;
             }
             case "navbar-AllowEffect:click": {
-                const Enabled = event.target.value;
+                const Enabled = event.target.getAttribute("aria-pressed") === "true";
 
                 AudioData.UpdateJson({
                     Setting: {
@@ -106,9 +106,21 @@ async function startWebsite() {
                     }
                 });
 
-                console.log(
-                    `[Audio IO] Toggle "AllowEffect": ${Enabled}`
-                );
+                console.log(`[Audio IO] Toggle "Allow Effect": ${Enabled}`);
+                break;
+            }
+            case "navbar-AllowEffect:click": {
+                const Enabled = event.target.getAttribute("aria-pressed") === "true";
+
+                AudioData.UpdateJson({
+                    Setting: {
+                        ...AudioData.Data.Setting,
+                        AudioControl: Enabled
+                    }
+                });
+
+                console.log(`[Audio IO] Toggle "Allow Audio Control": ${Enabled}`);
+                break;
             }
         }
     });
