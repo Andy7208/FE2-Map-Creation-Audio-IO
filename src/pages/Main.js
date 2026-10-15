@@ -1,3 +1,8 @@
+// ---------- //
+// Main setup //
+// ---------- //
+
+import EventManager from "../../js/system/EventManager.js";
 import RobloxIO from "../../js/backend/RobloxIO.js"
 import Main from "../../js/Main.js"
 
@@ -7,13 +12,59 @@ import { initialize as initNavbarButton } from "../../js/instance/navbar-Button.
 import { initialize as initNavbarVolume } from "../../js/instance/navbar-Volume.js";
 import { initialize as initNavbarAudioOptions } from "../../js/instance/navbar-AudioOptions.js";
 
-const IO = new RobloxIO()
-const M = new Main()
+let website;
 
-const website = new WebsiteSystem();
+async function startWebsite() {    
+    const Events = new EventManager();
+    const IO = new RobloxIO();
+    const M = new Main();
 
-website.register("Navbar Button", initNavbarButton, M, IO);
-website.register("Navbar Volume", initNavbarVolume, M);
-website.register("Navbar Audio Options", initNavbarAudioOptions);
+    website = new WebsiteSystem();
+    
+    //
 
-website.start();
+    const data = await M.AudioData.LoadJson(M.CONFIG.AUDIO_JSON_URL);
+
+    website.register("Navbar Button", initNavbarButton, M, IO);
+    website.register("Navbar Volume", initNavbarVolume, M);
+    website.register("Navbar Audio Options", initNavbarAudioOptions);
+
+    website.set("EventManager", Events);
+    website.set("Main", M);
+    website.set("RobloxIO", IO);
+    
+    website.set("AudioData", M.AudioData);
+    website.set("AudioJSON", data)
+
+    website.start();
+
+    // ------ //
+    // Source //
+    // ------ //
+
+    const EventsManager = website.get("EventManager");
+
+    EventsManager.register(
+        "navbar-Button",
+        document.getElementById("navbar-Button")
+    );
+
+    EventsManager.register(
+        "navbar-Volume",
+        document.getElementById("navbar-Volume")
+    );
+
+    EventsManager.register(
+        "navbar-AllowAudioControl",
+        document.getElementById("navbar-AllowAudioControl")
+    );
+    
+    EventsManager.register(
+        "navbar-AllowEffect",
+        document.getElementById("navbar-AllowEffect")
+    );
+
+    EventsManager.start();
+}
+
+startWebsite();
