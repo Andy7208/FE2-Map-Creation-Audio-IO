@@ -96,7 +96,7 @@ async function startWebsite() {
                 console.log("[Audio IO] Submit button clicked.");
                 break;
             }
-            case "navbar-AllowEffect": {
+            case "navbar-AllowEffect:click": {
                 const Enabled = event.target.value;
 
                 AudioData.UpdateJson({
