@@ -71,8 +71,23 @@ async function startWebsite() {
             return;
         }
 
-        if (type === "click") {
+        /* if (type === "click") {
             console.log(`[Audio IO] Player interacted with: ${name}`);
+        } */
+
+        if (name === "navber-Volume" && type === "input") {
+            const Volume = Number(event.target.value) / 100;
+
+            AudioData.UpdateJson({
+                Setting: {
+                    ...AudioData.Data.Setting,
+                    Volume: Volume
+                }
+            });
+
+            console.log(
+                `[Audio IO] Volume updated: ${AudioData.Data.Setting.Volume}`
+            );
         }
     });
 
