@@ -11,6 +11,7 @@ import WebsiteSystem from "../../js/system/WebsiteSystem.js";
 import { initialize as initNavbarButton } from "../../js/instance/navbar-Button.js";
 import { initialize as initNavbarVolume } from "../../js/instance/navbar-Volume.js";
 import { initialize as initNavbarAudioOptions } from "../../js/instance/navbar-AudioOptions.js";
+import { initialize as initNavbarChoices } from "../../js/instance/navbar-Choices.js";
 
 let website;
 
@@ -28,6 +29,7 @@ async function startWebsite() {
     website.register("Navbar Button", initNavbarButton, M, IO);
     website.register("Navbar Volume", initNavbarVolume, M);
     website.register("Navbar Audio Options", initNavbarAudioOptions);
+    website.register("Navbar Choices", initNavbarChoices, M);
 
     website.set("EventManager", Events);
     website.set("Main", M);
@@ -56,13 +58,18 @@ async function startWebsite() {
 
     EventsManager.register(
         "navbar-AllowControl",
-        document.querySelector(".navbar-AllowAudioControl")
+        document.querySelector(".navbar-AllowControl")
     );
     
     EventsManager.register(
         "navbar-AllowEffect",
         document.querySelector(".navbar-AllowEffect")
     );
+
+    // EventsManager.register(
+    //     "navbar-Choices",
+    //     document.querySelectorAll(".navbar-Choices")
+    // );
 
     EventsManager.setEventHandler((name, type, event) => {
         const AudioData = website.get("AudioData");
