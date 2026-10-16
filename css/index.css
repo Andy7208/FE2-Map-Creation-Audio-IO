@@ -334,26 +334,10 @@ p {
 /* On Death && Leaving Game */
 /* ======================== */
 
-.navbar-OnDeath {
+.navbar-Choices {
     display: flex;
-    align-items: start;
-    justify-content: left;
-
-    width: 100%;
-    min-height: 44px;
-    padding: 0 8px;
-    gap: 8px;
-    box-sizing: border-box;
-
-    background-color: #202e33;
-    border: 2px solid #52666d;
-    border-radius: 4px;
-}
-
-.navbar-OnLeave {
-    display: flex;
-    align-items: start;
-    justify-content: left;
+    align-items: center;
+    justify-content: start;
 
     width: 100%;
     min-height: 44px;
@@ -385,7 +369,7 @@ p {
     background-color: #83ff83;
 }
 
-.navbar-Selecter[data-selected="true"] {
+.navbar-Selecter[data-selected="false"] {
     background-color: #ff8383;
 }
 
@@ -393,7 +377,7 @@ p {
     background-color: #5aaf83;
 }
 
-.navbar-Selecter[data-selected="true"]:hover {
+.navbar-Selecter[data-selected="false"]:hover {
     background-color: #bd6176;
 }
 
