@@ -22,7 +22,7 @@
         "Audio": {
             "AllowEffect": true,
             "AllowControl": true,
-            "OnDeath": "stop",
+            "OnDeath": "quieten",
             "OnLeave": "stop"
         }
     }

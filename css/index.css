@@ -8,8 +8,9 @@
     src: url("../assets/fonts/RusselSquare.otf") format("opentype");
 }
 
-
-/* Menu setup */
+/* ==== */
+/* Main */
+/* ==== */
 
 html,
 body {
@@ -46,7 +47,9 @@ p {
     background-repeat: no-repeat;
 }
 
-/* Navbar Setup */
+/* ====== */
+/* Navbar */
+/* ====== */
 
 .navbar {
     width: 720px;
@@ -93,7 +96,9 @@ p {
     font-size: 32px;
 }
 
-/* Roblox Account User */
+/* =============== */
+/* Roblox UserName */
+/* =============== */
 
 .navbar-TextBox {
     width: 250px;
@@ -136,9 +141,17 @@ p {
     background-color: #202e33;
 }
 
-/* navbar-Audio Setup */
+/* =============== */
+/* Roblox UserName */
+/* =============== */
 
+/* ================ */
+/* Audio Adjustment */
+/* ================ */
+
+/* ============ */
 /* Audio Volume */
+/* ============ */
 
 .navbar-Volume {
     display: flex;
@@ -239,7 +252,13 @@ p {
     border-radius: 4px;
 }
 
+/* ============ */
+/* Audio Volume */
+/* ============ */
+
+/* ============= */
 /* Audio Options */
+/* ============= */
 
 .navbar-AudioOptions {
     display: flex;
@@ -260,7 +279,7 @@ p {
 .navbar-AllowEffect {
     font-family: "Highway Gothic", sans-serif;
 
-    min-height: 24px;
+    height: 24px;
     padding: 0 8px;
     box-sizing: border-box;
 
@@ -275,7 +294,7 @@ p {
 .navbar-AllowControl {
     font-family: "Highway Gothic", sans-serif;
 
-    min-height: 24px;
+    height: 24px;
     padding: 0 8px;
     box-sizing: border-box;
 
@@ -297,7 +316,98 @@ p {
     background-color: #ff8383;
 }
 
+.navbar-AllowEffect[aria-pressed="true"]:hover,
+.navbar-AllowControl[aria-pressed="true"]:hover {
+    background-color: #5aaf83;
+}
+
+.navbar-AllowEffect[aria-pressed="false"],
+.navbar-AllowControl[aria-pressed="false"] {
+    background-color: #bd6176;
+}
+
+/* ============= */
+/* Audio Options */
+/* ============= */
+
+/* ======================== */
+/* On Death && Leaving Game */
+/* ======================== */
+
+.navbar-OnDeath {
+    display: flex;
+    align-items: start;
+    justify-content: left;
+
+    width: 100%;
+    min-height: 44px;
+    padding: 0 8px;
+    gap: 8px;
+    box-sizing: border-box;
+
+    background-color: #202e33;
+    border: 2px solid #52666d;
+    border-radius: 4px;
+}
+
+.navbar-OnLeave {
+    display: flex;
+    align-items: start;
+    justify-content: left;
+
+    width: 100%;
+    min-height: 44px;
+    padding: 0 8px;
+    gap: 8px;
+    box-sizing: border-box;
+
+    background-color: #202e33;
+    border: 2px solid #52666d;
+    border-radius: 4px;
+}
+
+.navbar-Selecter {
+    font-family: "Highway Gothic", sans-serif;
+
+    height: 24px;
+    padding: 0 8px;
+    box-sizing: border-box;
+
+    background-color: #819aff;
+    border: 0px solid white;
+    border-radius: 4px;
+
+    color: white;
+    cursor: pointer;
+}
+
+.navbar-Selecter[data-selected="true"] {
+    background-color: #83ff83;
+}
+
+.navbar-Selecter[data-selected="true"] {
+    background-color: #ff8383;
+}
+
+.navbar-Selecter[data-selected="true"]:hover {
+    background-color: #5aaf83;
+}
+
+.navbar-Selecter[data-selected="true"]:hover {
+    background-color: #bd6176;
+}
+
+/* ======================== */
+/* On Death && Leaving Game */
+/* ======================== */
+
+/* ================ */
+/* Audio Adjustment */
+/* ================ */
+
+/* ============= */
 /* Tracker Setup */
+/* ============= */
 
 .navbar-PlayerTracker {
     display: flex;
@@ -338,7 +448,17 @@ p {
     font-family: "Highway Gothic", sans-serif;
 }
 
-/* Main Config / Setup */
+/* ============= */
+/* Tracker Setup */
+/* ============= */
+
+/* ====== */
+/* Navbar */
+/* ====== */
+
+/* ===== */
+/* Setup */
+/* ===== */
 
 main {
     position: absolute;
@@ -349,3 +469,7 @@ main {
     padding: 20px;
     color: white;
 }
+
+/* ===== */
+/* Setup */
+/* ===== */
