@@ -19,6 +19,11 @@ export function initialize(M, IO) {
                 return;
             }
 
+            M.AudioData.UpdateJson({
+                Roblox_UserName: result.username,
+                PlayerState: "None"
+            })
+
             console.log("[Audio IO] Account check response:", result.username);
         } catch(Error) {
             console.error("[Audio IO] Account request failed:", Error);

@@ -272,7 +272,7 @@ p {
     cursor: pointer;
 }
 
-.navbar-AllowAudioControl {
+.navbar-AllowControl {
     font-family: "Highway Gothic", sans-serif;
 
     min-height: 24px;
@@ -288,12 +288,12 @@ p {
 }
 
 .navbar-AllowEffect[aria-pressed="true"],
-.navbar-AllowAudioControl[aria-pressed="true"] {
+.navbar-AllowControl[aria-pressed="true"] {
     background-color: #83ff83;
 }
 
 .navbar-AllowEffect[aria-pressed="false"],
-.navbar-AllowAudioControl[aria-pressed="false"] {
+.navbar-AllowControl[aria-pressed="false"] {
     background-color: #ff8383;
 }
 

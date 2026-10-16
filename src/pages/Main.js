@@ -55,7 +55,7 @@ async function startWebsite() {
     );
 
     EventsManager.register(
-        "navbar-AllowAudioControl",
+        "navbar-AllowControl",
         document.querySelector(".navbar-AllowAudioControl")
     );
     
@@ -80,14 +80,19 @@ async function startWebsite() {
                 const Volume = Number(event.target.value) / 100;
 
                 AudioData.UpdateJson({
-                    Setting: {
-                        ...AudioData.Data.Setting,
-                        Volume: Volume
+                    CurrentAudio: {
+                        ...AudioData.Data.CurrentAudio,
+                        Settings: {
+                            ...AudioData.Data.CurrentAudio.Settings,
+                            Volume: Volume
+                        }
                     }
                 });
 
                 console.log(
-                    `[Audio IO] Volume updated: ${AudioData.Data.Setting.Volume}`
+                    `[Audio IO] Volume updated: ${
+                        AudioData.Data.CurrentAudio.Settings.Volume
+                    }`
                 );
 
                 break;
@@ -100,22 +105,28 @@ async function startWebsite() {
                 const Enabled = event.target.getAttribute("aria-pressed") === "true";
 
                 AudioData.UpdateJson({
-                    Setting: {
-                        ...AudioData.Data.Setting,
-                        AllowFade: Enabled
+                    Settings: {
+                        ...AudioData.Data.Settings,
+                        Audio: {
+                            ...AudioData.Data.Settings.Audio,
+                            AllowEffect: Enabled
+                        }
                     }
                 });
 
                 console.log(`[Audio IO] Toggle "Allow Effect": ${Enabled}`);
                 break;
             }
-            case "navbar-AllowEffect:click": {
+            case "navbar-AllowControl:click": {
                 const Enabled = event.target.getAttribute("aria-pressed") === "true";
 
                 AudioData.UpdateJson({
-                    Setting: {
-                        ...AudioData.Data.Setting,
-                        AudioControl: Enabled
+                    Settings: {
+                        ...AudioData.Data.Settings,
+                        Audio: {
+                            ...AudioData.Data.Settings.Audio,
+                            AllowControl: Enabled
+                        }
                     }
                 });
 

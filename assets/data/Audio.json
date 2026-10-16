@@ -4,17 +4,26 @@
 
     "CurrentAudio": {
         "AssetID": null,
-        "LinkID": null
-    },
-    "PlayAudio": false,
+        "LinkID": null,
 
-    "Setting": {
-        "AudioFade": true,
-        "AudioControl": true,
-        "Volume": 0.75
+        "Settings": {
+            "Volume": 0.75,
+            "PlayAudio": false,
+            "IsFading": false
+        },
+
+        "Meta": {
+            "Fade_Time": 0.5,
+            "Fade_Ease": "Linear"
+        }
     },
-    "Meta": {
-        "Fade_Time": 0.5,
-        "Fade_Ease": "linear"
+
+    "Settings": {
+        "Audio": {
+            "AllowEffect": true,
+            "AllowControl": true,
+            "OnDeath": "stop",
+            "OnLeave": "stop"
+        }
     }
 }
